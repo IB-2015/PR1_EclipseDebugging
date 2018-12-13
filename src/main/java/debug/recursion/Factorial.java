@@ -1,7 +1,5 @@
 package debug.recursion;
 
-import static pr.MakeItSimple.*;
-
 /*
  * adjusted code from: https://introcs.cs.princeton.edu/java/23recursion/Factorial.java.html
  */
@@ -46,8 +44,7 @@ public class Factorial {
 
     // return n!
     // precondition: n >= 0 and n <= 20
-    public static long factorial(long n) {
-    	pr.MakeItSimple.println("Compute factorial of: " + n);
+    public static long factorial(long n) throws java.lang.StackOverflowError {
         if (n < 0) {
         	return -1;
         } else if (n > 20) {
@@ -56,14 +53,13 @@ public class Factorial {
         	return 1;
         } else {
         	long factorial = n * factorial(n-1);
-        	println("Factorial of: " + factorial);
         	return factorial;
         }
     }
 
     public static void main(String[] args) {
-    	int n = 7;
-        println(factorial(n));
+    	int n = 300;
+        factorial(n);
     }
 
 }
